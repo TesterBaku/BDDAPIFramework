@@ -33,6 +33,7 @@ public class StepDefinition extends Utils{
 	ResponseSpecification resSpec;
 	Response response;
 	TestDataBuild data = new TestDataBuild();
+	static String place_id;
 	
 	@Given("Add Place Payload with {string} {string} {string}")
 	public void add_place_payload_with(String name, String language, String address) {
@@ -45,14 +46,18 @@ public class StepDefinition extends Utils{
 	}
 	
 
-	@When("user calls {string} with Post http request")
-	public void user_calls_with_post_http_request(String resource) {
+	@When("user calls {string} with {string} http request")
+	public void user_calls_with_http_request(String resource, String httpMethod) {
 		
 		APIResources resourceAPi = APIResources.valueOf(resource);
 		
 		resSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
-		response = res.when().post(resourceAPi.getResource())
-				.then().spec(resSpec).extract().response();
+		
+		if(httpMethod.equalsIgnoreCase("POST")) 
+			response = res.when().post(resourceAPi.getResource());
+		else if(httpMethod.equalsIgnoreCase("GET")) 
+			response = res.when().get(resourceAPi.getResource());
+		
 	}
 
 	@Then("the API call is successful with status code {int}")
@@ -63,9 +68,26 @@ public class StepDefinition extends Utils{
 
 	@Then("{string} is response body is {string}")
 	public void is_response_body_is(String keyValue, String expectedValue) {
-		String resp = response.asString();
-		JsonPath js = new JsonPath(resp);
-		Assert.assertEquals(js.get(keyValue).toString(), expectedValue);
+		Assert.assertEquals(getJsonPath(response, keyValue), expectedValue);
 	}
+	
+	@Then("verify place_Id created maps to {string} using {string}")
+	public void verify_place_id_created_maps_to_using(String expectedName, String resource) throws IOException {
+		
+		place_id = getJsonPath(response, "place_id");
+		res = given().spec(requestSpecification()).queryParam("place_id", place_id);
+		user_calls_with_http_request(resource, "GET");
+		String actualName = getJsonPath(response, "name");
+		Assert.assertEquals(actualName, expectedName);
+	}
+	
+	
+	@Given("DeletePlace payload")
+	public void delete_place_payload() throws IOException {
+	 
+		res = given().spec(requestSpecification()).body(data.deletePlacePayload(place_id));
+	}
+
+
 
 }
