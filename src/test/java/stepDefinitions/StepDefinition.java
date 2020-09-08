@@ -45,6 +45,18 @@ public class StepDefinition extends Utils{
 		}	
 	}
 	
+	//Add Place ExcelDriven
+	@Given("Add Place ExcelDriven Payload")
+	public void add_place_excel_driven_payload() {
+		try {
+			res = given().spec(requestSpecification())
+						.body(data.addPlaceExcel());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
+	}
+
+	
 
 	@When("user calls {string} with {string} http request")
 	public void user_calls_with_http_request(String resource, String httpMethod) {

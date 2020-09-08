@@ -12,11 +12,11 @@ Multiparts:		<none>
 Body:
 {
     "accuracy": 50,
-    "name": "Rufat",
+    "name": "Frontline house",
     "phone_number": "(+91) 983 893 3937",
-    "address": "123 Rasulzadeh ave., Baku",
+    "address": "29, side layout, cohen 09",
     "website": "http://google.com",
-    "language": "Azerbaijani",
+    "language": "French-IN",
     "location": {
         "lat": -38.383494,
         "lng": 33.427362
@@ -27,7 +27,7 @@ Body:
     ]
 }
 HTTP/1.1 200 OK
-Date: Mon, 31 Aug 2020 20:18:53 GMT
+Date: Tue, 08 Sep 2020 15:24:06 GMT
 Server: Apache/2.4.18 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -40,17 +40,17 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "3eb922904ab28aa2b016046038883c8f",
+    "place_id": "459f9a339075bfb22ac54bdb6ae4012a",
     "scope": "APP",
-    "reference": "286bfdb359e10f3b78dd8e1e8be3f176286bfdb359e10f3b78dd8e1e8be3f176",
-    "id": "286bfdb359e10f3b78dd8e1e8be3f176"
+    "reference": "5c62d1667feccfdb287e97be83d00b015c62d1667feccfdb287e97be83d00b01",
+    "id": "5c62d1667feccfdb287e97be83d00b01"
 }
 Request method:	GET
-Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=3eb922904ab28aa2b016046038883c8f
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=459f9a339075bfb22ac54bdb6ae4012a
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
-				place_id=3eb922904ab28aa2b016046038883c8f
+				place_id=459f9a339075bfb22ac54bdb6ae4012a
 Form params:	<none>
 Path params:	<none>
 Headers:		Accept=*/*
@@ -59,13 +59,13 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:			<none>
 HTTP/1.1 200 OK
-Date: Mon, 31 Aug 2020 20:18:56 GMT
+Date: Tue, 08 Sep 2020 15:24:08 GMT
 Server: Apache/2.4.18 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
 Access-Control-Max-Age: 3600
 Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
-Content-Length: 249
+Content-Length: 257
 Keep-Alive: timeout=5, max=100
 Connection: Keep-Alive
 Content-Type: application/json;charset=UTF-8
@@ -76,15 +76,15 @@ Content-Type: application/json;charset=UTF-8
         "longitude": "33.427362"
     },
     "accuracy": "50",
-    "name": "Rufat",
+    "name": "Frontline house",
     "phone_number": "(+91) 983 893 3937",
-    "address": "123 Rasulzadeh ave., Baku",
+    "address": "29, side layout, cohen 09",
     "types": "shoe park,shop",
     "website": "http://google.com",
-    "language": "Azerbaijani"
+    "language": "French-IN"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123
+Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -96,20 +96,37 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:
 {
-    "place_id": "3eb922904ab28aa2b016046038883c8f"
+    "website": "http://google.com",
+    "types": [
+        "Shoe park",
+        "Shop"
+    ],
+    "address": "30, Outer Way, Cohen",
+    "name": "Best Place",
+    "accuracy": "50",
+    "phone_number": "(+91) 983 993 3937",
+    "language": "French-IN",
+    "location": {
+        "lng": "33.427362",
+        "lat": "-38.383494"
+    }
 }
 HTTP/1.1 200 OK
-Date: Mon, 31 Aug 2020 20:18:59 GMT
+Date: Tue, 08 Sep 2020 15:24:12 GMT
 Server: Apache/2.4.18 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
 Access-Control-Max-Age: 3600
 Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
-Content-Length: 15
+Content-Length: 194
 Keep-Alive: timeout=5, max=100
 Connection: Keep-Alive
 Content-Type: application/json;charset=UTF-8
 
 {
-    "status": "OK"
+    "status": "OK",
+    "place_id": "ef25ffaa3236c3f99fd275405a2c1586",
+    "scope": "APP",
+    "reference": "43d993a0d5cb2f22a51f5c8e697bc0ac43d993a0d5cb2f22a51f5c8e697bc0ac",
+    "id": "43d993a0d5cb2f22a51f5c8e697bc0ac"
 }

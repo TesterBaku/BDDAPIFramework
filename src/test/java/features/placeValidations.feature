@@ -1,6 +1,6 @@
 Feature: Validating Place API's
 
-@AddPlaceTag
+@AddPlaceTag @Regression
 Scenario Outline: Verify if Place is successfully added using AddPlaceAPI
 	Given Add Place Payload with "<name>" "<language>" "<address>"
 	When user calls "addPlaceAPI" with "Post" http request
@@ -14,8 +14,17 @@ Examples:
 	|Frontline house| French-IN | 29, side layout, cohen 09 |
 #	|AAHouse        | English   | World center              |
 	
+@AddPlaceTag	
+Scenario: Verify if Place is successfully added using AddPlaceAPI ExcelDriven
+	Given Add Place ExcelDriven Payload 
+	When user calls "addPlaceAPI" with "Post" http request
+	Then the API call is successful with status code 200
+	And "status" is response body is "OK"
+	And "scope" is response body is "APP"
 	
-@DeletePlaceTag		
+	
+	
+@DeletePlaceTag	@Regression	
 Scenario: Verify if Delete Place functionality is working
 	Given DeletePlace payload
 	When user calls "deletePlaceAPI" with "Post" http request
